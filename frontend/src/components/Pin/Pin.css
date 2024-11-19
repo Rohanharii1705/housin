@@ -1,0 +1,69 @@
+/* Pin.css */
+
+/* Custom marker icon */
+.marker {
+  position: relative;
+}
+
+/* Popup styling */
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px; /* Set the width of the popup container */
+}
+
+.popup-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px; /* Space between image and text */
+}
+
+.popup-text-container {
+  text-align: center;
+}
+
+.popup-title-link {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.popup-title-link:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+.popup-bed-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.popup-bedroom {
+  font-size: 14px;
+  color: #555;
+  margin-right: 5px;
+}
+
+.popup-price {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .popup-container {
+    width: 200px;
+  }
+
+  .popup-img {
+    height: 120px; /* Smaller image size for mobile */
+  }
+}

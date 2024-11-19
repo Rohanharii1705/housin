@@ -1,0 +1,210 @@
+/* Navbar.css */
+
+/* Basic Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Left section (Logo and Links) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.logo-img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.navbar-link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #555;
+    font-size: 1rem;
+}
+
+.navbar-link:hover {
+    color: #007bff;
+}
+
+/* Right section (Profile and Authentication Links) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    position: relative; /* Allow positioning of menu */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Added space between profile and username */
+}
+
+.user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+/* Profile button styles */
+.profile-button {
+    background-color: #007bff; /* Button-like background color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.profile-button:hover {
+    background-color: #0056b3; /* Darken color on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.profile-button:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+/* Add space between profile span and username/avatar */
+.profile-span {
+    margin-left: 15px; /* Adjust as needed */
+}
+
+.user-profile-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.notification-badge {
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.login-link, .signup-link {
+    text-decoration: none;
+    color: #007bff;
+    margin-left: 10px;
+}
+
+.login-link:hover, .signup-link:hover {
+    color: #0056b3;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.navbar-menu {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+    right: 0; /* Ensure menu aligns to the right */
+}
+
+.navbar-menu.active {
+    display: flex;
+}
+
+.navbar-menu-link {
+    text-decoration: none;
+    color: #555;
+    padding: 10px 0;
+}
+
+.navbar-menu-link:hover {
+    color: #007bff;
+}
+
+.logout-mobile {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: white; /* Change background to white on hover */
+    color: #0056b3; /* Optionally, you can change the text color on hover */
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow on hover */
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar-left {
+        display: none;
+    }
+
+    .navbar-right {
+        justify-content: flex-end; /* Align the right section to the right */
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar-menu {
+        right: 0; /* Ensure the menu is aligned to the right side */
+    }
+}

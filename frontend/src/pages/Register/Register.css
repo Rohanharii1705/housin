@@ -1,0 +1,93 @@
+/* Register.css */
+
+.registerPage {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.formContainer {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.7); /* Slightly transparent background */
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+.formTitle {
+  margin-top: 0;
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formInput {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 0; /* Removed to avoid extra spacing within .formGroup */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #aaa;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.submitButton {
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue background, adjust as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submitButton:hover {
+  background-color: #0056b3; /* Darker blue on hover, adjust as needed */
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.loginLink {
+  text-decoration: none;
+  color: #666; /* Adjust as needed */
+  font-size: 14px;
+  display: block;
+  margin-top: 10px;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}

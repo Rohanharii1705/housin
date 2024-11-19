@@ -1,0 +1,15 @@
+.leaflet-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.leaflet-control {
+  background-color: white;
+  border-radius: 4px;
+}
+
+.marker-icon {
+  background-color: red; /* Example color for marker */
+  width: 25px;
+  height: 41px;
+}

@@ -1,0 +1,112 @@
+.newPostPage {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.newPostFormContainer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Added margin for spacing */
+}
+
+.newPostTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.newPostForm .formGroup {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.newPostForm .formGroup label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.newPostForm .formGroup input,
+.newPostForm .formGroup select,
+.description .ql-container {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.submitButton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.uploadContainer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.imagePreview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.previewImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+  .newPostPage {
+    flex-direction: row; /* Change layout to row on larger screens */
+    justify-content: space-between; /* Space out items */
+  }
+
+  .newPostFormContainer {
+    flex: 3; /* Use flex for responsive widths */
+    margin-bottom: 0; /* Remove margin for layout consistency */
+  }
+
+  .uploadContainer {
+    flex: 1; /* Adjust upload container width */
+  }
+}
+
+@media (max-width: 768px) {
+  .newPostFormContainer {
+    padding: 15px;
+  }
+
+  .submitButton {
+    width: 100%; /* Full-width button on smaller screens */
+  }
+}

@@ -1,0 +1,262 @@
+/* Card.css */
+
+/* CSS Variables */
+:root {
+  --card-border-radius: 12px;
+  --primary-color: #2563eb;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --background-white: #ffffff;
+  --background-page: #f3f4f6;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --border-color: #e5e7eb;
+  --transition-speed: 0.3s;
+}
+
+/* Card Container */
+.property-card {
+  position: relative;
+  background: var(--background-white);
+  border-radius: var(--card-border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px var(--shadow-color);
+  transition: all var(--transition-speed) ease;
+  overflow: hidden;
+  max-width: 400px;
+  margin: 1rem;
+  will-change: transform;
+}
+
+.property-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Image Container */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #f8fafc;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.property-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.property-card:hover .property-image {
+  transform: scale(1.05);
+}
+
+/* Price Tag */
+.price-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  z-index: 1;
+  font-size: 1.125rem;
+  border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+/* Content Container */
+.content {
+  padding: 1.5rem;
+  background: var(--background-white);
+}
+
+/* Property Title */
+.property-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.property-title a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.property-title a:hover {
+  color: var(--primary-color);
+}
+
+/* Property Address */
+.property-address {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.property-address span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.address-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--text-secondary);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 1rem 0;
+}
+
+/* Features Section */
+.property-features {
+  display: flex;
+  gap: 2rem;
+  padding-top: 0.5rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-speed) ease;
+}
+
+.feature:hover {
+  color: var(--text-primary);
+}
+
+.feature-icon {
+  width: 22px;
+  height: 22px;
+  color: currentColor;
+}
+
+.feature span {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Card Link Overlay */
+.card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.card-link:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: var(--card-border-radius);
+}
+
+/* Loading State */
+.property-card.loading {
+  animation: shimmer 1.5s infinite linear;
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #f9fafb 50%,
+    #ffffff 100%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .property-card {
+    margin: 0.75rem;
+  }
+  
+  .image-container {
+    height: 180px;
+  }
+  
+  .content {
+    padding: 1.25rem;
+  }
+  
+  .property-title {
+    font-size: 1.125rem;
+  }
+  
+  .price-tag {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .property-features {
+    gap: 1.5rem;
+  }
+  
+  .feature-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .property-card {
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  
+  .card-link {
+    display: none;
+  }
+}
+
+/* Focus & Accessibility */
+.property-card a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .property-card,
+  .property-image,
+  .feature {
+    transition: none;
+  }
+  
+  .property-card:hover .property-image {
+    transform: none;
+  }
+}

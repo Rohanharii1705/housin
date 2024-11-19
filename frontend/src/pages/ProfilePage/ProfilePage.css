@@ -1,0 +1,154 @@
+/* Main Profile Page Container */
+.profilePageContainer {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  height: 100vh; /* Full page height */
+  background-image: url('../../../public/house22.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+/* User Information Section */
+.userInfoSection {
+  flex: 1;
+  max-width: 50%;
+  height: calc(100vh - 40px); /* Subtracts padding */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.userInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* User Info Details */
+.userInfoTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.updateProfileButton {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.updateProfileButton:hover {
+  background-color: #0056b3;
+}
+
+.userInfo {
+  font-size: 18px;
+  color: #333;
+}
+
+.userAvatarContainer {
+  font-weight: 500;
+}
+
+.userAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.logoutButton {
+  padding: 8px 12px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.logoutButton:hover {
+  background-color: darkred;
+}
+
+/* Post Lists Section */
+.userPostLists {
+  margin-top: 20px;
+}
+
+.createPostButton {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.createPostButton:hover {
+  background-color: #007bff;
+}
+
+/* Saved List Title */
+.savedListTitle h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Chat Section */
+.chatSection {
+  flex: 1;
+  max-width: 50%;
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .profilePageContainer {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .userInfoSection,
+  .chatSection {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .userPostLists,
+  .userInfoWrapper {
+    gap: 15px;
+  }
+
+  .userAvatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .updateProfileButton,
+  .logoutButton,
+  .createPostButton {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .userInfoTitle {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

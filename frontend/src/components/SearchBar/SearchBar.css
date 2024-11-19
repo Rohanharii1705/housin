@@ -1,0 +1,77 @@
+.searchBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa; /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin: 20px auto; /* Centering the search bar */
+  width: 80%; /* Set a width */
+}
+
+.type {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px; /* Space between type buttons and form */
+}
+
+.type button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded button edges */
+  padding: 10px 15px; /* Padding for buttons */
+  margin: 0 5px; /* Space between buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.type button.active {
+  background-color: #0056b3; /* Darker shade when active */
+}
+
+.type button:hover {
+  background-color: #0056b3; /* Darker on hover */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Full width for form inputs */
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  margin: 5px 0; /* Space between inputs */
+  border: 1px solid #ced4da; /* Light gray border */
+  border-radius: 5px; /* Rounded input edges */
+  font-size: 16px; /* Font size */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #007bff; /* Blue border on focus */
+  outline: none; /* Remove default outline */
+}
+
+button {
+  background-color: #28a745; /* Green button for search */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded edges */
+  padding: 10px 15px; /* Padding for button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+  margin-top: 10px; /* Space above button */
+}
+
+button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+img {
+  width: 20px; /* Set a width for the search icon */
+  height: auto; /* Maintain aspect ratio */
+}

@@ -1,0 +1,42 @@
+/* List Container Styling */
+.list-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .no-posts-message {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-top: 20px;
+  }
+  
+  /* Grid Layout for Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Ensures responsive grid */
+    gap: 20px;
+    width: 100%;
+    justify-items: center; /* Center cards horizontally */
+    margin-top: 20px;
+  }
+  
+  /* Optional: Adding spacing around the grid for better visibility */
+  .card-grid .property-card {
+    width: 100%; /* Ensures cards are responsive */
+    height: 400px; /* Fixed height to ensure same size */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* Ensures padding doesn't affect the overall size */
+  }
+  
+  /* Optional: Custom Styling for the No Posts Message */
+  .no-posts-message {
+    font-size: 20px;
+    color: #555;
+    text-align: center;
+    padding: 10px;
+  }
+  

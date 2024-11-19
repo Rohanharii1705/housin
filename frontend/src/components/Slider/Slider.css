@@ -1,0 +1,89 @@
+.slider {
+    position: relative;
+    max-width: 800px; /* Set a maximum width for the slider */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow for rounded corners */
+}
+
+.bigiImage img {
+    width: 100%; /* Full width for main image */
+    border-radius: 10px; /* Match rounded corners */
+    cursor: pointer; /* Indicate interactivity */
+    transition: transform 0.3s; /* Smooth zoom effect */
+}
+
+.bigiImage img:hover {
+    transform: scale(1.05); /* Slightly zoom in on hover */
+}
+
+.smallImages {
+    display: flex;
+    justify-content: center; /* Center small images */
+    margin-top: 10px; /* Space between big and small images */
+    height: 10vh;
+}
+
+.smallImages img {
+    width: auto; /* Fixed width for small images */
+    height: 60px; /* Fixed height for small images */
+    margin: 0 5px; /* Space between small images */
+    border-radius: 5px; /* Rounded edges */
+    cursor: pointer; /* Indicate interactivity */
+    transition: transform 0.3s; /* Smooth transition */
+}
+
+.smallImages img:hover {
+    transform: scale(1.1); /* Zoom in on hover */
+    border: 2px solid #007bff; /* Blue border on hover */
+}
+
+.fullSlider {
+    position: fixed; /* Full-screen mode */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for full screen */
+    display: flex;
+    justify-content: center; /* Center the full image */
+    align-items: center; /* Center the full image vertically */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.fullSlider .imgContainer img {
+    width: auto; /* Allow width to adjust */
+    height: auto; /* Allow height to adjust */
+    max-width: 100%; /* Image can't exceed the width of the viewport */
+    max-height: 100%; /* Image can't exceed the height of the viewport */
+    border-radius: 10px; /* Match rounded corners */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer; /* Indicate interactivity */
+    z-index: 100; /* Ensure arrows are above other content */
+}
+
+.arrow.left {
+    left: 20px; /* Position left arrow */
+}
+
+.arrow.right {
+    right: 20px; /* Position right arrow */
+}
+
+.close {
+    position: absolute;
+    top: 20px; /* Position close button */
+    right: 20px; /* Position close button */
+    font-size: 24px; /* Font size for close button */
+    color: white; /* Close button color */
+    cursor: pointer; /* Indicate interactivity */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.close:hover {
+    color: #ff4d4d; /* Red on hover */
+}

@@ -1,0 +1,85 @@
+.listPage {
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column; /* Stack list and map vertically */
+    align-items: center;
+  }
+  
+  /* List Container as Flexbox */
+  .listContainer {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Adjust width */
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-start; /* Align items to the top */
+    margin-bottom: 2rem; /* Add space between list and map */
+  }
+  
+  .listTitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Filter Component */
+  .listContainer .filter {
+    margin-bottom: 2rem;
+  }
+  
+  /* Card Container */
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1rem;
+    padding: 2rem;
+  }
+  
+  .cardWrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cardWrapper .card {
+    width: 100%;
+  }
+  
+  /* Loading and Error Messages */
+  .loadingMessage,
+  .noResultsMessage {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #666;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  /* Map Container */
+  .mapContainer {
+    width: 80%; /* Adjust width to match listContainer */
+    height: 500px; /* Fixed height for the map */
+    margin-top: 2rem; /* Adds space between list and map */
+    overflow: hidden; /* Prevents scrolling */
+    border-radius: 0.5rem; /* Rounded corners for map */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .listPage {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .listContainer,
+    .mapContainer {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  
+    .mapContainer {
+      height: 400px; /* Adjust the height for smaller screens */
+    }
+  }
+  

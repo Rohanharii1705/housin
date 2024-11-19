@@ -1,0 +1,243 @@
+/* SinglePage.css */
+
+.SinglePage {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f5f5f5;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.details, .features {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details {
+  flex: 3;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.features {
+  flex: 2;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  gap: 15px;
+}
+
+.postinfo h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #888;
+  font-size: 14px;
+}
+
+.address img {
+  width: 16px;
+  height: 16px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ff5722;
+  background-color: rgba(255, 87, 34, 0.1);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.userinfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+  font-weight: 500;
+}
+
+.userinfo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bottom {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feature img {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(254, 205, 81, 0.2);
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.featureText span {
+  font-weight: bold;
+  font-size: 16px;
+  color: #444;
+}
+
+.featureText p {
+  font-size: 14px;
+  color: #666;
+}
+
+.listVertical, .listHorizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  background-color: #fafafa;
+  border-radius: 6px;
+}
+
+.sizes {
+  display: flex;
+  gap: 15px;
+  justify-content: space-around;
+}
+
+.size {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.size img {
+  width: 18px;
+  height: 18px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  border-radius: 25px;
+}
+
+button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #2268ff;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e64a19;
+}
+
+button img {
+  width: 14px;
+  height: 14px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .SinglePage {
+    flex-direction: column; /* Stack the details and features on small screens */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .details, .features {
+    flex: none; /* Remove flex sizing */
+    width: 100%; /* Full width */
+    margin-bottom: 20px; /* Add some space between sections */
+  }
+
+  .postinfo h1 {
+    font-size: 20px; /* Reduce font size */
+  }
+
+  .price {
+    font-size: 18px; /* Reduce font size */
+  }
+
+  .title {
+    font-size: 16px; /* Reduce font size */
+  }
+
+  button {
+    font-size: 14px; /* Reduce button text size */
+    padding: 10px; /* Adjust padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .postinfo h1 {
+    font-size: 18px; /* Further reduce font size */
+  }
+
+  .price {
+    font-size: 16px; /* Further reduce font size */
+  }
+
+  .title {
+    font-size: 14px; /* Further reduce font size */
+  }
+
+  .address {
+    font-size: 12px; /* Smaller font for address */
+  }
+
+  .bottom {
+    font-size: 14px; /* Reduce description font size */
+  }
+}
