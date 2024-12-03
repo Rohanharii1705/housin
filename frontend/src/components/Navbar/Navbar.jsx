@@ -54,7 +54,6 @@ function Navbar() {
               <span className="logo-text">Housin</span>
             </Link>
             <Link to="/" className="navbar-link">Home</Link>
-            <Link to="/" className="navbar-link">About</Link>
             <Link to="/list" className="navbar-link">List</Link>
           </>
         )}
@@ -88,9 +87,7 @@ function Navbar() {
           {!currentUser?.isAdmin && (
             <>
               <Link to="/" className="navbar-menu-link">Home</Link>
-              <Link to="/" className="navbar-menu-link">About</Link>
-              <Link to="/" className="navbar-menu-link">Contact</Link>
-              <Link to="/" className="navbar-menu-link">Agents</Link>
+              <Link to="/list" className="navbar-menu-link">List</Link>
             </>
           )}
           {!currentUser && (
