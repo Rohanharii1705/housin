@@ -17,7 +17,7 @@ const app = express();
 
 // Middleware for parsing JSON bodies
 app.use(cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000", // Fallback if CLIENT_URL is not set
+    origin: process.env.CLIENT_URL || "https://housin.vercel.app", // Fallback if CLIENT_URL is not set
     credentials: true // Allow cookies to be sent with requests
 }));
 app.use(express.json());
