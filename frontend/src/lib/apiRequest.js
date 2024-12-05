@@ -1,8 +1,15 @@
-import axios from "axios"
+import jwt from "jsonwebtoken";
 
-const apiRequest= axios.create({
-    baseURL:"https://housin-backend.onrender.com/api",
-    withCredentials:true,
-});
+export const verifyToken = (req, res, next) => {
+    const token = req.cookies.token;
 
-export default apiRequest;
+    if (!token) return res.status(401).json({ message: "Not Authenticated" });
+
+    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, payload) => {
+        if (err) return res.status(403).json({ message: "Token is not valid or expired!" });
+
+        req.userId = payload.id;
+        req.isAdmin = payload.isAdmin;
+        next();
+    });
+};
