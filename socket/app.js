@@ -3,7 +3,7 @@ import { Server } from "socket.io";
 
 const io = new Server({
   cors: {
-    origin: ["http://localhost:3000", "http://localhost:8000"], // Allow both origins
+    origin: ["https://housin.vercel.app", "https://housin-backend.onrender.com"], // Allow both origins
     methods: ["GET", "POST"],
     credentials: true // Allow cookies to be sent
   },
