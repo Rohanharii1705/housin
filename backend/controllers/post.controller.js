@@ -1,71 +1,77 @@
 import prisma from "../lib/prisma.js";
 import jwt from "jsonwebtoken"
-import prisma from "../lib/prisma.js";
-import jwt from "jsonwebtoken";
 
-export const getPosts = async (req, res) => {
-  const query = req.query;
-  try {
-    const posts = await prisma.post.findMany({
-      where: {
-        city: query.city || undefined,
-        type: query.type || undefined,
-        property: query.property || undefined,
-        bedroom: query.bedroom ? parseInt(query.bedroom) : undefined,
-        price: {
-          gte: query.minPrice ? parseInt(query.minPrice) : 0,
-          lte: query.maxPrice ? parseInt(query.maxPrice) : 10000000,
-        },
-      },
-    });
-    res.status(200).json(posts);
-  } catch (err) {
-    console.error("Error fetching posts:", err);
-    res.status(500).json({ message: "Failed to get posts" });
-  }
-};
+export const getPosts=async(req,res)=>{
+    const query=req.query;
+    try {
 
+const posts=await prisma.post.findMany({
+    where:{
+        city:query.city||undefined,
+        type:query.type||undefined,
+        property:query.property||undefined,
+        property:query.property||undefined,
+        bedroom:parseInt(query.bedroom)||undefined,
+        price:{
+            gte:parseInt(query.minPrice)||0,
+            lte:parseInt(query.maxPrice)||10000000,
+        }
+    }
+})
+
+        res.status(200).json(posts)
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({message :"failed to get posts"})
+    }
+}
 export const getPost = async (req, res) => {
-  const id = req.params.id;
-  try {
-    const post = await prisma.post.findUnique({
-      where: { id },
-      include: {
-        postDetail: true,
-        user: {
-          select: {
-            username: true,
-            avatar: true,
-          },
-        },
-      },
-    });
+    const id = req.params.id;
+    try {
+        const post = await prisma.post.findUnique({
+            where: { id },
+            include: {
+                postDetail: true,
+                user: {
+                    select: {
+                        username: true,
+                        avatar: true,
+                    },
+                },
+            },
+        });
 
-    if (!post) {
-      return res.status(404).json({ message: "Post not found" });
+        if (!post) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+
+        const token = req.cookies?.token;
+
+        if (token) {
+            jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {
+                if (!err) {
+                    const saved = await prisma.savedPost.findUnique({
+                        where: {
+                            userId_postId: {
+                                postId: id,
+                                userId: payload.id,
+                            },
+                        },
+                    });
+                    return res.status(200).json({ ...post, isSaved: saved ? true : false });
+                } else {
+                    console.error("Token verification failed:", err);
+                }
+            });
+            return; // Prevent the outer response from sending if token is being verified.
+        }
+
+        // If no token, respond with isSaved: false
+        res.status(200).json({ ...post, isSaved: false });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: "Failed to get post" });
     }
-
-    const token = req.cookies?.token;
-    let isSaved = false;
-
-    if (token) {
-      const payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
-      const saved = await prisma.savedPost.findUnique({
-        where: {
-          userId_postId: {
-            postId: id,
-            userId: payload.id,
-          },
-        },
-      });
-      isSaved = !!saved;
-    }
-
-    res.status(200).json({ ...post, isSaved });
-  } catch (err) {
-    console.error("Error fetching post:", err);
-    res.status(500).json({ message: "Failed to get post" });
-  }
 };
 
   
