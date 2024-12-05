@@ -1,16 +1,8 @@
-// verifyToken.js
-import jwt from "jsonwebtoken";
+import axios from "axios"
 
-export const verifyToken = (req, res, next) => {
-    const token = req.cookies.token;
+const apiRequest= axios.create({
+    baseURL:"https://housin-backend.onrender.com/api",
+    withCredentials:true,
+});
 
-    if (!token) return res.status(401).json({ message: "Not Authenticated" });
-
-    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, payload) => {
-        if (err) return res.status(403).json({ message: "Token is not valid!" });
-
-        req.userId = payload.id;
-        req.isAdmin = payload.isAdmin; 
-        next();
-    });
-};
+export default apiRequest;
