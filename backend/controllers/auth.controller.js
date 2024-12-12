@@ -1,3 +1,4 @@
+// auth.controller.js
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import prisma from "../lib/prisma.js";
@@ -37,22 +38,14 @@ export const login = async (req, res) => {
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) return res.status(401).json({ message: "Invalid Credentials" });
 
-        // Set token expiration time (1 week)
-        const tokenExpiration = "7d"; // 7 days in JWT time format
-        const token = jwt.sign(
-            { id: user.id, isAdmin: false },
-            process.env.JWT_SECRET_KEY,
-            { expiresIn: tokenExpiration }
-        );
+        const age = 1000 * 60 * 60 * 24 * 7; // 1 week
+        const token = jwt.sign({ id: user.id, isAdmin: false }, process.env.JWT_SECRET_KEY, { expiresIn: age });
 
         const { password: userPassword, ...userInfo } = user;
 
-        // Set token in cookie
         res.cookie("token", token, {
             httpOnly: true,
-            maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week in milliseconds
-            secure: process.env.NODE_ENV === "production", // Use secure cookies in production
-            sameSite: "strict",
+            maxAge: age,
         }).status(200).json(userInfo);
     } catch (err) {
         console.log("Login Error:", err);
