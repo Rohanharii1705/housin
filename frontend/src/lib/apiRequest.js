@@ -1,8 +1,8 @@
-import cors from "cors";
+import axios from 'axios';
 
-const corsOptions = {
-    origin: "https://housin.vercel.app", // Replace with your frontend URL
-    credentials: true, // Allow cookies (for sending the token)
-};
+const apiRequest = axios.create({
+    baseURL: "https://housin-backend.onrender.com/api",
+    withCredentials: true, // Ensures cookies are sent
+});
 
-app.use(cors(corsOptions));
+export default apiRequest;
