@@ -18,7 +18,7 @@ const app = express();
 // Middleware for parsing JSON bodies
 app.use(cors({
     origin: process.env.CLIENT_URL || "https://housin.vercel.app", // Fallback if CLIENT_URL is not set
-     Credentials: true // Allow cookies to be sent with requests
+  credentials: true, // Allow cookies to be sent
 }));
 app.use(express.json());
 app.use(cookieParser());
